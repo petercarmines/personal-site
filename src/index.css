@@ -2,6 +2,7 @@
   display: block;
         width:306px;
         height:305px;
+  margin-top: 40px;
 }
 
 #simple_arc>span[class^=w]:nth-of-type(n+0){
