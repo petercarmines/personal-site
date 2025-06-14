@@ -1,44 +1,17 @@
 import React from 'react';
 import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './index.css'
+import NameAnimation from './components/NameAnimation';
+import CosmicBackground from './components/CosmicBackground';
+import LogoHeader from './components/LogoHeader';
 
-const nameArr = ['P', 'E', 'T', 'E', 'R', 'C', 'A', 'R', 'M', 'I', 'N', 'E', 'S']
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      position: false,
-    };
-  }
-
-  styles = {
-    letter: {
-      margin: '15px',
-      color: 'purple',
-      textAlign: 'center',
-      position: 'relative',
-      right: 0,
-    },
-    clickedLetter: {
-      margin: '15px',
-      color: 'purple',
-      position: 'relative',
-      display: 'inline-block'
-    },
-    image: {
-      width: "40px"
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        test
-      </div>
-    )
-  }
+function App() {
+  return (
+    <div className="app">
+      <CosmicBackground />
+      <LogoHeader />
+      <NameAnimation />
+    </div>
+  );
 }
 
 export default App;
