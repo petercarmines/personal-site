@@ -8,7 +8,7 @@ const LogoHeader = () => {
   return (
     <div className="header">
       <img
-        src="https://via.placeholder.com/40?text=PC"
+        src="../images/linkedin.png"
         alt="Peter Carmines Logo"
         className="logo"
       />
