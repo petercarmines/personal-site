@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const LogoHeader = () => {
+  useEffect(() => {
+    console.log('LogoHeader rendered');
+  }, []);
+
   return (
     <div className="header">
       <img
-        src="https://via.placeholder.com/50?text=PC"
+        src="https://via.placeholder.com/40?text=PC"
         alt="Peter Carmines Logo"
         className="logo"
       />
