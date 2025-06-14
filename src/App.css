@@ -1,40 +1,44 @@
 body {
   margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  font-family: 'Courier New', monospace; /* Retro font */
+  min-height: 100vh; /* Allow scrolling */
+  font-family: 'Courier New', monospace;
 }
 
 .app {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #333333;
-  background: #f4e1c1; /* Solid light sand color */
+  background: #f4e1c1;
   z-index: 1;
+  padding: 10px;
 }
 
 .name-container {
   display: flex;
   gap: 10px;
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2rem);
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
   visibility: visible !important;
   opacity: 1 !important;
   position: relative;
+  flex-wrap: wrap;
+  max-width: 90%;
+  padding: 20px;
 }
 
 .letter {
   position: relative;
   display: inline-block;
   transition: transform 0.3s ease, color 0.3s ease;
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M0 0l12 12-4 4 8 8-4 4-8-8-8 8v-4l8-8-4-4 12-12z" fill="black"/></svg>') 16 16, auto; /* Classic black arrow */
-  padding: 10px; /* Larger click area */
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M0 0l12 12-4 4 8 8-4 4-8-8-8 8v-4l8-8-4-4 12-12z" fill="black"/></svg>') 16 16, auto;
+  padding: 12px;
+  touch-action: manipulation;
 }
 
 .letter:hover {
@@ -43,8 +47,9 @@ body {
 }
 
 .letter.moving {
-  animation: randomMove 15s infinite ease-in-out; /* Slower movement */
-  position: absolute;
+  animation: randomMove 15s infinite ease-in-out;
+  position: relative;
+  will-change: transform;
 }
 
 .letter.clicked {
@@ -54,17 +59,17 @@ body {
 
 @keyframes randomMove {
   0% { transform: translate(0, 0); }
-  20% { transform: translate(calc(40vw * var(--rand-x1)), calc(40vh * var(--rand-y1))); }
-  40% { transform: translate(calc(40vw * var(--rand-x2)), calc(40vh * var(--rand-y2))); }
-  60% { transform: translate(calc(40vw * var(--rand-x3)), calc(40vh * var(--rand-y3))); }
-  80% { transform: translate(calc(40vw * var(--rand-x4)), calc(40vh * var(--rand-y4))); }
+  20% { transform: translate(calc(20vw * var(--rand-x1)), calc(20vh * var(--rand-y1))); }
+  40% { transform: translate(calc(20vw * var(--rand-x2)), calc(20vh * var(--rand-y2))); }
+  60% { transform: translate(calc(20vw * var(--rand-x3)), calc(20vh * var(--rand-y3))); }
+  80% { transform: translate(calc(20vw * var(--rand-x4)), calc(20vh * var(--rand-y4))); }
   100% { transform: translate(0, 0); }
 }
 
 .header {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -72,6 +77,59 @@ body {
 }
 
 .linkedin-link img {
-  width: 32px;
-  height: 32px;
+  width: clamp(24px, 5vw, 28px);
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
+  }
+  .name-container {
+    font-size: clamp(1.2rem, 4.5vw, 1.8rem);
+    gap: 8px;
+  }
+  .header {
+    top: 5px;
+    right: 5px;
+  }
+  .letter.moving {
+    animation: randomMove 10s infinite ease-in-out;
+  }
+  @keyframes randomMove {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(calc(10vw * var(--rand-x1)), calc(10vh * var(--rand-y1))); }
+    40% { transform: translate(calc(10vw * var(--rand-x2)), calc(10vh * var(--rand-y2))); }
+    60% { transform: translate(calc(10vw * var(--rand-x3)), calc(10vh * var(--rand-y3))); }
+    80% { transform: translate(calc(10vw * var(--rand-x4)), calc(10vh * var(--rand-y4))); }
+    100% { transform: translate(0, 0); }
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 5px;
+  }
+  .name-container {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    gap: 5px;
+    padding: 10px;
+  }
+  .linkedin-link img {
+    width: 24px;
+  }
+  .header {
+    flex-direction: column;
+  }
+}
+
+@media (hover: none) {
+  .letter:hover {
+    transform: none;
+    color: inherit;
+  }
+  .letter:active {
+    transform: scale(1.1);
+    color: #ff6666;
+  }
 }
