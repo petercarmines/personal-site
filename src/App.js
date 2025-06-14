@@ -7,9 +7,9 @@ import LogoHeader from './components/LogoHeader';
 function App() {
   return (
     <div className="app">
-      <CosmicBackground />
-      <LogoHeader />
+       <LogoHeader />
       <NameAnimation />
+      <CosmicBackground />
     </div>
   );
 }
