@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const NameAnimation = () => {
   const name = 'Peter Carmines';
   const [clickedLetters, setClickedLetters] = useState({});
+  const [movingLetters, setMovingLetters] = useState({});
 
   useEffect(() => {
     console.log('NameAnimation rendered with name:', name);
@@ -11,6 +12,10 @@ const NameAnimation = () => {
   const handleClick = (index) => {
     console.log('Letter clicked:', name[index], 'at index:', index);
     setClickedLetters((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+    setMovingLetters((prev) => ({
       ...prev,
       [index]: !prev[index],
     }));
@@ -26,7 +31,7 @@ const NameAnimation = () => {
       {name.split('').map((letter, index) => (
         <span
           key={index}
-          className={`letter ${clickedLetters[index] ? 'clicked' : ''}`}
+          className={`letter ${clickedLetters[index] ? 'clicked' : ''} ${movingLetters[index] ? 'moving' : ''}`}
           onClick={() => handleClick(index)}
           data-testid={`letter-${index}`}
         >

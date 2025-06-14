@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import LinkedInIcon from '../images/linkedin-icon.png'; // Adjust path if different
 
 const LogoHeader = () => {
   useEffect(() => {
@@ -8,17 +9,21 @@ const LogoHeader = () => {
   return (
     <div className="header">
       <img
-        src="../images/linkedin.png"
+        src={require('../images/logo.png')} // Assumes logo.png in src/images
         alt="Peter Carmines Logo"
         className="logo"
       />
       <a
-        href="https://www.linkedin.com/in/peter-carmines"
+        href="https://www.linkedin.com/in/peter-carmines" // Update with your LinkedIn URL
         target="_blank"
         rel="noopener noreferrer"
         className="linkedin-link"
       >
-        LinkedIn
+        <img
+          src={LinkedInIcon}
+          alt="LinkedIn"
+          style={{ width: '24px', height: '24px' }}
+        />
       </a>
     </div>
   );
