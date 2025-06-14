@@ -8,11 +8,6 @@ const LogoHeader = () => {
 
   return (
     <div className="header">
-      <img
-        src={require('../images/logo.png')} // Assumes logo.png in src/images
-        alt="Peter Carmines Logo"
-        className="logo"
-      />
       <a
         href="https://www.linkedin.com/in/peter-carmines" // Update with your LinkedIn URL
         target="_blank"
