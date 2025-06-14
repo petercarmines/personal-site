@@ -17,7 +17,6 @@ const LogoHeader = () => {
         <img
           src={LinkedInIcon}
           alt="LinkedIn"
-          style={{ width: '24px', height: '24px' }}
         />
       </a>
     </div>
