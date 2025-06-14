@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { Button, Card, Container, Row, Col, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 
