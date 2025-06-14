@@ -5,13 +5,13 @@ const CosmicBackground = () => {
     window.particlesJS('particles-js', {
       particles: {
         number: { value: 100, density: { enable: true, value_area: 800 } },
-        color: { value: ['#ffffff', '#ff6ac1', '#6b21a8'] },
+        color: { value: ['#ffffff', '#b388ff', '#4a148c'] }, /* Darker cosmic colors */
         shape: { type: ['circle', 'star'], stroke: { width: 0 } },
-        opacity: { value: 0.7, random: true },
+        opacity: { value: 0.6, random: true },
         size: { value: 3, random: true },
         move: {
           enable: true,
-          speed: 2,
+          speed: 1.5,
           direction: 'none',
           random: true,
           out_mode: 'out',
@@ -33,7 +33,7 @@ const CosmicBackground = () => {
 
     return () => {
       if (window.particlesJS) {
-        window.particlesJS.load = null; // Cleanup if needed
+        window.particlesJS.load = null; // Cleanup
       }
     };
   }, []);
