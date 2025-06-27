@@ -6,18 +6,22 @@ const NameAnimation = () => {
   const [movingLetters, setMovingLetters] = useState({});
 
   useEffect(() => {
-    console.log('NameAnimation rendered with name:', name);
-  }, []);
+    const initialMoving = {};
+    name.split('').forEach((_, i) => {
+      initialMoving[i] = true;
+    });
+    setMovingLetters(initialMoving);
+  }, [name]);
 
   const handleClick = (index) => {
     console.log('Letter clicked:', name[index], 'at index:', index);
     setClickedLetters((prev) => ({
       ...prev,
-      [index]: !prev[index],
+      [index]: true,
     }));
     setMovingLetters((prev) => ({
       ...prev,
-      [index]: !prev[index],
+      [index]: false,
     }));
   };
 
