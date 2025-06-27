@@ -1,41 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const NameAnimation = () => {
   const name = 'Peter Carmines';
-  const [clickedLetters, setClickedLetters] = useState({});
-  const [movingLetters, setMovingLetters] = useState({});
-
-  useEffect(() => {
-    const initialMoving = {};
-    name.split('').forEach((_, i) => {
-      initialMoving[i] = true;
-    });
-    setMovingLetters(initialMoving);
-  }, [name]);
+  const [movingIndex, setMovingIndex] = useState(null); // no letter moves initially
 
   const handleClick = (index) => {
-    console.log('Letter clicked:', name[index], 'at index:', index);
-    setClickedLetters((prev) => ({
-      ...prev,
-      [index]: true,
-    }));
-    setMovingLetters((prev) => ({
-      ...prev,
-      [index]: false,
-    }));
+    // If clicking the already moving letter, stop all
+    if (movingIndex === index) {
+      setMovingIndex(null);
+    } else {
+      setMovingIndex(index);
+    }
   };
-
-  if (!name) {
-    console.error('Name is undefined');
-    return <div style={{ color: 'red' }}>Error: Name not defined</div>;
-  }
 
   return (
     <div className="name-container" data-testid="name-container">
       {name.split('').map((letter, index) => (
         <span
           key={index}
-          className={`letter ${clickedLetters[index] ? 'clicked' : ''} ${movingLetters[index] ? 'moving' : ''}`}
+          className={`letter ${movingIndex === index ? 'moving' : ''}`}
           onClick={() => handleClick(index)}
           data-testid={`letter-${index}`}
           style={{
