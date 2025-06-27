@@ -36,7 +36,7 @@ body {
   position: relative;
   display: inline-block;
   transition: transform 0.3s ease, color 0.3s ease;
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M0 0l12 12-4 4 8 8-4 4-8-8-8 8v-4l8-8-4-4 12-12z" fill="black"/></svg>') 16 16, auto;
+  cursor: pointer; /* ← updated line */
   padding: 12px;
   touch-action: manipulation;
 }
