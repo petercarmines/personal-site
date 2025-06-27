@@ -55,7 +55,6 @@ body {
 .letter.clicked {
   color: #006699;
   transform: scale(1);
-  animation: none !important;
 }
 
 @keyframes randomMove {
