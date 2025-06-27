@@ -23,7 +23,6 @@ function App() {
   return (
     <div className="app">
       <ErrorBoundary>
-        <LogoHeader />
         <NameAnimation />
       </ErrorBoundary>
     </div>
