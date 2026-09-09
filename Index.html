@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#f3f5f7" />
+  <link rel="icon" href="data:," />
+  <title>Peter Carmines — Full-Stack Web Developer</title>
+  <meta name="description" content="Freelance websites and landing pages for small businesses, built by full-stack web developer Peter Carmines." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f3f5f7;
+      --white: #ffffff;
+      --ink: #13202b;
+      --muted: #52616d;
+      --line: #c8d0d6;
+      --accent: #e84b2c;
+      --blue: #a8d8f0;
+      --yellow: #ffd65a;
+      --dark: #142b3a;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+      --sans: "DM Sans", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    .top-nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .top-nav a {
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 9px 12px;
+    }
+    .top-nav a:hover, .top-nav a:focus-visible { background: var(--yellow); outline: none; }
+    .top-nav .contact-link { background: var(--ink); color: white; margin-left: 6px; }
+    .top-nav .contact-link:hover, .top-nav .contact-link:focus-visible { background: var(--accent); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(280px, .7fr);
+      min-height: 610px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-copy {
+      padding: clamp(70px, 10vw, 130px) clamp(30px, 7vw, 92px) 82px 0;
+      border-right: 1px solid var(--line);
+    }
+    .eyebrow {
+      margin: 0 0 24px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .eyebrow::before { content: ""; display: inline-block; width: 30px; height: 3px; background: var(--accent); margin-right: 11px; vertical-align: middle; }
+    h1 {
+      margin: 0;
+      max-width: 800px;
+      font-size: clamp(46px, 6.8vw, 88px);
+      line-height: .98;
+      letter-spacing: -0.06em;
+      font-weight: 700;
+    }
+    .hero-lede {
+      max-width: 650px;
+      margin: 34px 0 0;
+      font-size: clamp(18px, 2vw, 22px);
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border: 1px solid var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .button.primary { background: var(--ink); color: white; }
+    .button.primary:hover, .button.primary:focus-visible { background: var(--accent); border-color: var(--accent); outline: none; }
+    .button.secondary:hover, .button.secondary:focus-visible { background: var(--yellow); outline: none; }
+
+    .hero-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 32px 0 32px 32px;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .availability { align-self: flex-end; background: var(--yellow); padding: 9px 12px; font-family: var(--mono); font-size: 11px; }
+    .browser-card { background: var(--white); border: 1px solid var(--ink); box-shadow: 12px 12px 0 var(--blue); }
+    .browser-top { height: 34px; border-bottom: 1px solid var(--ink); display: flex; align-items: center; gap: 6px; padding: 0 10px; }
+    .dot { width: 7px; height: 7px; border: 1px solid var(--ink); border-radius: 50%; }
+    .browser-body { padding: 22px; }
+    .code-line { height: 8px; background: var(--ink); margin-bottom: 12px; opacity: .13; }
+    .code-line.red { width: 64%; background: var(--accent); opacity: 1; }
+    .code-line.short { width: 40%; }
+    .code-line.mid { width: 75%; }
+    .stack-list { margin-top: 40px; background: var(--dark); color: white; padding: 22px; }
+    .stack-list p { font-family: var(--mono); font-size: 11px; margin: 0 0 13px; color: #a9c0ce; }
+    .stack-list div { display: flex; justify-content: space-between; border-top: 1px solid #355061; padding: 10px 0 0; margin-top: 10px; font-size: 13px; }
+    .stack-list span:last-child { color: var(--yellow); font-family: var(--mono); font-size: 10px; }
+
+    section { border-bottom: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: 240px 1fr; padding: 78px 0 42px; }
+    .section-no { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    h2 { margin: 0; font-size: clamp(34px, 5vw, 58px); line-height: 1.05; letter-spacing: -0.04em; }
+    .section-intro { max-width: 620px; color: var(--muted); font-size: 18px; margin: 20px 0 0; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .service { padding: 34px 30px 42px; border-right: 1px solid var(--line); background: var(--white); }
+    .service:last-child { border-right: 0; }
+    .service-tag { font-family: var(--mono); color: var(--accent); font-size: 11px; }
+    .service h3 { font-size: 25px; margin: 26px 0 14px; line-height: 1.15; }
+    .service p { color: var(--muted); min-height: 104px; }
+    .price { border-top: 1px solid var(--line); padding-top: 18px; margin-top: 26px; }
+    .price strong { display: block; font-size: 25px; }
+    .price span { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+    .service ul { padding: 0; margin: 24px 0 0; list-style: none; }
+    .service li { padding: 7px 0 7px 18px; position: relative; font-size: 14px; }
+    .service li::before { content: "/"; position: absolute; left: 0; font-family: var(--mono); color: var(--accent); }
+
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding-bottom: 84px; }
+    .project-slot { background: var(--white); border: 1px solid var(--line); min-height: 380px; display: flex; flex-direction: column; }
+    .project-preview { height: 210px; background: var(--dark); padding: 18px; position: relative; overflow: hidden; }
+    .project-preview::before { content: ""; position: absolute; inset: 50px 24px 24px 24px; border: 1px solid #476273; }
+    .project-preview::after { content: ""; position: absolute; width: 66%; height: 12px; left: 40px; top: 78px; background: var(--blue); box-shadow: 0 28px 0 -3px #476273, 0 53px 0 -4px #476273; }
+    .project-slot:nth-child(2) .project-preview { background: var(--yellow); }
+    .project-slot:nth-child(2) .project-preview::before { border-color: var(--ink); background: var(--paper); }
+    .project-slot:nth-child(2) .project-preview::after { background: var(--accent); box-shadow: 0 28px 0 -3px var(--line), 0 53px 0 -4px var(--line); }
+    .project-slot:nth-child(3) .project-preview { background: var(--blue); }
+    .project-slot:nth-child(3) .project-preview::before { border-color: var(--ink); }
+    .project-slot:nth-child(3) .project-preview::after { background: var(--ink); box-shadow: 0 28px 0 -3px #6aaccd, 0 53px 0 -4px #6aaccd; }
+    .slot-top { position: relative; z-index: 1; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; color: white; }
+    .project-slot:nth-child(2) .slot-top, .project-slot:nth-child(3) .slot-top { color: var(--ink); }
+    .project-info { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .project-info h3 { margin: 0; font-size: 20px; }
+    .project-info p { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+    .replace-note { font-family: var(--mono); font-size: 10px; margin-top: auto; padding-top: 24px; color: var(--accent); }
+
+    .about-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; padding-bottom: 86px; }
+    .about-lead { font-size: clamp(26px, 3.5vw, 38px); line-height: 1.25; letter-spacing: -0.03em; margin: 0; }
+    .about-copy { color: var(--muted); font-size: 17px; }
+    .about-copy p:first-child { margin-top: 0; }
+    .timeline { margin-top: 34px; border-top: 1px solid var(--line); }
+    .timeline-row { display: grid; grid-template-columns: 120px 1fr; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .timeline-row time { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+    .timeline-row strong { display: block; font-size: 14px; color: var(--ink); }
+    .timeline-row span { font-size: 13px; }
+
+    .process-band { background: var(--dark); color: white; }
+    .process-band .section-no, .process-band .section-intro { color: #acc0cc; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); padding-bottom: 76px; }
+    .step { padding: 25px; border-top: 1px solid #476273; border-right: 1px solid #476273; }
+    .step:last-child { border-right: none; }
+    .step b { color: var(--yellow); font-family: var(--mono); font-size: 11px; }
+    .step h3 { margin: 24px 0 10px; }
+    .step p { color: #acc0cc; font-size: 14px; }
+
+    .contact { background: var(--accent); color: white; }
+    .contact-inner { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; padding: 90px 0; }
+    .contact h2 { max-width: 760px; font-size: clamp(42px, 6.5vw, 80px); }
+    .contact p { max-width: 580px; font-size: 18px; color: #ffe5dd; }
+    .email-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    .email-actions a, .email-actions button { min-height: 50px; border: 1px solid white; background: white; color: var(--ink); padding: 12px 17px; font: 700 13px var(--sans); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+    .email-actions button { background: transparent; color: white; }
+    .email-actions a:hover, .email-actions a:focus-visible { background: var(--yellow); outline: none; }
+    .email-actions button:hover, .email-actions button:focus-visible { background: var(--ink); border-color: var(--ink); outline: none; }
+    .copy-status { min-height: 22px; margin-top: 8px; text-align: right; font-family: var(--mono); font-size: 10px; color: #ffe5dd; }
+
+    footer { background: var(--ink); color: #9eb0bc; }
+    .footer-inner { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-family: var(--mono); font-size: 10px; }
+    .footer-inner a { color: white; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { border-right: 0; padding-right: 0; }
+      .hero-panel { min-height: 420px; padding: 32px; }
+      .browser-card { max-width: 420px; }
+      .services-grid, .work-grid { grid-template-columns: 1fr; }
+      .service { border-right: 0; border-bottom: 1px solid var(--line); }
+      .service p { min-height: 0; }
+      .work-grid { gap: 14px; }
+      .project-slot { min-height: 0; }
+      .about-layout { grid-template-columns: 1fr; gap: 30px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .step:nth-child(2) { border-right: 0; }
+      .step:nth-child(-n+2) { border-bottom: 1px solid #476273; }
+      .contact-inner { grid-template-columns: 1fr; align-items: start; }
+      .email-actions { justify-content: flex-start; }
+      .copy-status { text-align: left; }
+    }
+
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      .top-nav { justify-content: space-between; min-height: 64px; gap: 0; }
+      .top-nav a { padding: 9px 7px; font-size: 10px; }
+      .top-nav a:nth-child(3) { display: none; }
+      .top-nav .contact-link { margin-left: 0; }
+      .hero { min-height: 0; }
+      .hero-copy { padding: 62px 0 58px; }
+      h1 { font-size: clamp(45px, 14vw, 66px); }
+      .hero-lede { font-size: 18px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-panel { margin: 0 -14px; padding: 25px 28px 38px; min-height: 380px; }
+      .availability { align-self: flex-start; }
+      .browser-card { box-shadow: 8px 8px 0 var(--blue); }
+      .section-head { grid-template-columns: 1fr; gap: 20px; padding: 62px 0 34px; }
+      .service { padding: 28px 22px 34px; }
+      .project-preview { height: 190px; }
+      .about-layout { padding-bottom: 62px; }
+      .timeline-row { grid-template-columns: 92px 1fr; gap: 12px; }
+      .steps { grid-template-columns: 1fr; padding-bottom: 56px; }
+      .step, .step:nth-child(2) { border-right: 0; border-bottom: 1px solid #476273; }
+      .contact-inner { padding: 70px 0; }
+      .email-actions { flex-direction: column; }
+      .email-actions a, .email-actions button { width: 100%; justify-content: center; }
+      .footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding: 24px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      .top-nav, .hero-actions, .email-actions, .copy-status { display: none; }
+      body { background: white; }
+      section, .hero { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav wrap" aria-label="Main navigation">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a class="contact-link" href="#contact">Start a project →</a>
+  </nav>
+
+  <main>
+    <div class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Peter Carmines · Full-stack web developer</p>
+        <h1>Small-business websites, built to mean business.</h1>
+        <p class="hero-lede">I design and develop clear, fast websites and landing pages that help small businesses earn trust and turn visitors into customers.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:petercarmines@gmail.com?subject=Website%20project%20inquiry">Tell me about your project</a>
+          <a class="button secondary" href="#services">See services & pricing</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Development overview">
+        <span class="availability">Freelance projects · Let’s talk</span>
+        <div>
+          <div class="browser-card" aria-hidden="true">
+            <div class="browser-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="browser-body">
+              <div class="code-line red"></div>
+              <div class="code-line mid"></div>
+              <div class="code-line short"></div>
+              <div class="stack-list">
+                <p>// built around your business</p>
+                <div><span>Strategy</span><span>01</span></div>
+                <div><span>Design</span><span>02</span></div>
+                <div><span>Development</span><span>03</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-no">01 / SERVICES</span>
+          <div><h2>A focused site for where your business is now.</h2><p class="section-intro">Straightforward scope, practical guidance, and a polished result—without agency overhead.</p></div>
+        </div>
+        <div class="services-grid">
+          <article class="service">
+            <span class="service-tag">01 / QUICK LAUNCH</span>
+            <h3>Landing page</h3>
+            <p>One sharp page for a campaign, new offer, event, or service. Built to focus attention on one clear next step.</p>
+            <ul><li>Custom single-page design</li><li>Mobile-ready build</li><li>Contact or inquiry path</li><li>Basic search setup</li></ul>
+            <div class="price"><strong>From $750</strong><span>Typical timeline: 1–2 weeks</span></div>
+          </article>
+          <article class="service">
+            <span class="service-tag">02 / CORE OFFER</span>
+            <h3>Business website</h3>
+            <p>A complete, credible online home for a small business that needs to explain its work and make it easy to get in touch.</p>
+            <ul><li>Up to 5 core pages</li><li>Responsive custom design</li><li>Content structure guidance</li><li>Contact integration</li></ul>
+            <div class="price"><strong>From $1,500</strong><span>Typical timeline: 2–4 weeks</span></div>
+          </article>
+          <article class="service">
+            <span class="service-tag">03 / CUSTOM</span>
+            <h3>Web features</h3>
+            <p>Need more than a brochure site? I can scope custom forms, database-backed features, or improvements to an existing site.</p>
+            <ul><li>Feature planning</li><li>Full-stack development</li><li>Existing-site improvements</li><li>Handoff documentation</li></ul>
+            <div class="price"><strong>Custom quote</strong><span>Based on scope and complexity</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-no">02 / SELECTED WORK</span>
+          <div><h2>Project case studies, coming next.</h2><p class="section-intro">Three reserved slots for recent launches, with room for the challenge, solution, and result behind each one.</p></div>
+        </div>
+        <div class="work-grid">
+          <article class="project-slot">
+            <div class="project-preview"><div class="slot-top"><span>PROJECT 01</span><span>WEBSITE</span></div></div>
+            <div class="project-info"><h3>Featured business website</h3><p>Add a client name, a concise project summary, and the result achieved.</p><span class="replace-note">READY FOR YOUR FIRST CASE STUDY →</span></div>
+          </article>
+          <article class="project-slot">
+            <div class="project-preview"><div class="slot-top"><span>PROJECT 02</span><span>LANDING PAGE</span></div></div>
+            <div class="project-info"><h3>Campaign landing page</h3><p>Show how focused messaging and design helped support a launch or promotion.</p><span class="replace-note">PROJECT SLOT RESERVED →</span></div>
+          </article>
+          <article class="project-slot">
+            <div class="project-preview"><div class="slot-top"><span>PROJECT 03</span><span>FULL-STACK</span></div></div>
+            <div class="project-info"><h3>Custom web feature</h3><p>Highlight a useful workflow, integration, or data-driven experience.</p><span class="replace-note">PROJECT SLOT RESERVED →</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-no">03 / ABOUT</span>
+          <div><h2>Development experience, grounded in real-world work.</h2></div>
+        </div>
+        <div class="about-layout">
+          <p class="about-lead">I’m Peter, a full-stack developer who values useful systems, clear communication, and websites that do their job well.</p>
+          <div class="about-copy">
+            <p>I built core web applications and worked with databases as a Full-Stack Developer at Social Auto Transport.</p>
+            <p>I also served as a Teaching Assistant for full-stack web development at Trilogy Education Services—experience that sharpened both my technical foundation and my ability to explain complex work clearly.</p>
+            <div class="timeline">
+              <div class="timeline-row"><time>Oct 2018–<br>Jun 2019</time><div><strong>Full-Stack Developer</strong><span>Social Auto Transport · Core applications & databases</span></div></div>
+              <div class="timeline-row"><time>TEACHING</time><div><strong>Teaching Assistant</strong><span>Trilogy Education Services · Full-stack web development</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-band">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-no">04 / PROCESS</span>
+          <div><h2>Clear steps. No mystery.</h2><p class="section-intro">We keep the project moving with a simple, visible process and decisions made at the right time.</p></div>
+        </div>
+        <div class="steps">
+          <div class="step"><b>STEP 01</b><h3>Define</h3><p>We clarify your audience, goals, content, and the most useful scope.</p></div>
+          <div class="step"><b>STEP 02</b><h3>Structure</h3><p>I organize the page flow and content so visitors know what matters.</p></div>
+          <div class="step"><b>STEP 03</b><h3>Build</h3><p>I design and develop the responsive site, sharing progress as it takes shape.</p></div>
+          <div class="step"><b>STEP 04</b><h3>Launch</h3><p>We review the final details, connect the essentials, and put the site to work.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-inner">
+        <div>
+          <h2>Have a project in mind?</h2>
+          <p>Send me a quick note about your business, what you need, and the timeline you’re considering. I’ll reply with the best next step.</p>
+        </div>
+        <div>
+          <div class="email-actions">
+            <a href="mailto:petercarmines@gmail.com?subject=Website%20project%20inquiry">Email Peter →</a>
+            <button type="button" id="copyEmail">Copy email</button>
+          </div>
+          <div class="copy-status" id="copyStatus" role="status" aria-live="polite">petercarmines@gmail.com</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>Peter Carmines · Full-Stack Web Developer</span>
+      <a href="mailto:petercarmines@gmail.com">petercarmines@gmail.com</a>
+    </div>
+  </footer>
+
+  <script>
+    const copyButton = document.getElementById('copyEmail');
+    const copyStatus = document.getElementById('copyStatus');
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('petercarmines@gmail.com');
+        copyStatus.textContent = 'Email copied.';
+      } catch (error) {
+        copyStatus.textContent = 'Copy unavailable — select: petercarmines@gmail.com';
+      }
+      window.setTimeout(() => { copyStatus.textContent = 'petercarmines@gmail.com'; }, 2400);
+    });
+  </script>
+</body>
+</html>
