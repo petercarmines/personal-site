@@ -6,8 +6,11 @@
   <meta name="color-scheme" content="light" />
   <meta name="theme-color" content="#f3f5f7" />
   <link rel="icon" href="data:," />
-  <title>Peter Carmines — Full-Stack Web Developer</title>
-  <meta name="description" content="Freelance websites and landing pages for small businesses, built by full-stack web developer Peter Carmines." />
+  <title>Peter Carmines | Salisbury, Maryland</title>
+  <meta name="description" content="Peter Carmines helps small businesses with clear websites, focused landing pages, and Google Business Profile setup." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Peter Carmines | Salisbury, Maryland" />
+  <meta property="og:description" content="A few practical ways I help small businesses show up clearly online." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -134,9 +137,10 @@
     h2 { margin: 0; font-size: clamp(34px, 5vw, 58px); line-height: 1.05; letter-spacing: -0.04em; }
     .section-intro { max-width: 620px; color: var(--muted); font-size: 18px; margin: 20px 0 0; }
 
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
-    .service { padding: 34px 30px 42px; border-right: 1px solid var(--line); background: var(--white); }
-    .service:last-child { border-right: 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--line); }
+    .service { grid-column: span 2; padding: 34px 30px 42px; border-right: 1px solid var(--line); background: var(--white); }
+    .service:nth-child(3), .service:nth-child(5) { border-right: 0; }
+    .service:nth-child(n+4) { grid-column: span 3; border-top: 1px solid var(--line); }
     .service-tag { font-family: var(--mono); color: var(--accent); font-size: 11px; }
     .service h3 { font-size: 25px; margin: 26px 0 14px; line-height: 1.15; }
     .service p { color: var(--muted); min-height: 104px; }
@@ -205,7 +209,8 @@
       .hero-panel { min-height: 420px; padding: 32px; }
       .browser-card { max-width: 420px; }
       .services-grid, .work-grid { grid-template-columns: 1fr; }
-      .service { border-right: 0; border-bottom: 1px solid var(--line); }
+      .service, .service:nth-child(n+4) { grid-column: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .service:nth-child(n+4) { border-top: 0; }
       .service p { min-height: 0; }
       .work-grid { gap: 14px; }
       .project-slot { min-height: 0; }
@@ -222,7 +227,6 @@
       .wrap { width: min(100% - 28px, 1160px); }
       .top-nav { justify-content: space-between; min-height: 64px; gap: 0; }
       .top-nav a { padding: 9px 7px; font-size: 10px; }
-      .top-nav a:nth-child(3) { display: none; }
       .top-nav .contact-link { margin-left: 0; }
       .hero { min-height: 0; }
       .hero-copy { padding: 62px 0 58px; }
@@ -255,25 +259,24 @@
 </head>
 <body>
   <nav class="top-nav wrap" aria-label="Main navigation">
-    <a href="#services">Services</a>
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a class="contact-link" href="#contact">Start a project →</a>
+    <a href="#services">What I do</a>
+    <a href="#about">About me</a>
+    <a class="contact-link" href="#contact">Email me</a>
   </nav>
 
   <main>
     <div class="hero wrap">
       <div class="hero-copy">
-        <p class="eyebrow">Peter Carmines · Full-stack web developer</p>
-        <h1>Small-business websites, built to mean business.</h1>
-        <p class="hero-lede">I design and develop clear, fast websites and landing pages that help small businesses earn trust and turn visitors into customers.</p>
+        <p class="eyebrow">Peter Carmines · Salisbury, Maryland</p>
+        <h1>Hi, I’m Peter. I help local businesses get online.</h1>
+        <p class="hero-lede">I work with small businesses on practical online projects, mostly websites, landing pages, and Google Business Profiles. If you have something in mind, send me an email.</p>
         <div class="hero-actions">
-          <a class="button primary" href="mailto:petercarmines@gmail.com?subject=Website%20project%20inquiry">Tell me about your project</a>
-          <a class="button secondary" href="#services">See services & pricing</a>
+          <a class="button primary" href="mailto:petercarmines@gmail.com?subject=Website%20project%20inquiry">Email me</a>
+          <a class="button secondary" href="#services">See what I do</a>
         </div>
       </div>
-      <aside class="hero-panel" aria-label="Development overview">
-        <span class="availability">Freelance projects · Let’s talk</span>
+      <aside class="hero-panel" aria-label="How I help">
+        <span class="availability">Open to a few good projects</span>
         <div>
           <div class="browser-card" aria-hidden="true">
             <div class="browser-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
@@ -282,10 +285,10 @@
               <div class="code-line mid"></div>
               <div class="code-line short"></div>
               <div class="stack-list">
-                <p>// built around your business</p>
-                <div><span>Strategy</span><span>01</span></div>
-                <div><span>Design</span><span>02</span></div>
-                <div><span>Development</span><span>03</span></div>
+                <p>// keep it useful</p>
+                <div><span>Understand the need</span><span>01</span></div>
+                <div><span>Make it clear</span><span>02</span></div>
+                <div><span>Get it online</span><span>03</span></div>
               </div>
             </div>
           </div>
@@ -296,72 +299,48 @@
     <section id="services">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-no">01 / SERVICES</span>
-          <div><h2>A focused site for where your business is now.</h2><p class="section-intro">Straightforward scope, practical guidance, and a polished result—without agency overhead.</p></div>
+          <span class="section-no">01 / WHAT I DO</span>
+          <div><h2>A few things I can help with.</h2><p class="section-intro">Nothing complicated. Just useful online work for small businesses that want to look professional and make it easy for people to get in touch.</p></div>
         </div>
         <div class="services-grid">
           <article class="service">
-            <span class="service-tag">01 / QUICK LAUNCH</span>
-            <h3>Landing page</h3>
-            <p>One sharp page for a campaign, new offer, event, or service. Built to focus attention on one clear next step.</p>
-            <ul><li>Custom single-page design</li><li>Mobile-ready build</li><li>Contact or inquiry path</li><li>Basic search setup</li></ul>
-            <div class="price"><strong>From $750</strong><span>Typical timeline: 1–2 weeks</span></div>
+            <span class="service-tag">01 / BUSINESS WEBSITES</span>
+            <h3>A clear home for your business</h3>
+            <p>A straightforward website that explains what you do, answers the important questions, and gives people an easy way to contact you.</p>
+            <ul><li>A look that fits your business</li><li>Pages that work well on phones</li><li>Help organizing your content</li><li>Contact details that are easy to find</li></ul>
           </article>
           <article class="service">
-            <span class="service-tag">02 / CORE OFFER</span>
-            <h3>Business website</h3>
-            <p>A complete, credible online home for a small business that needs to explain its work and make it easy to get in touch.</p>
-            <ul><li>Up to 5 core pages</li><li>Responsive custom design</li><li>Content structure guidance</li><li>Contact integration</li></ul>
-            <div class="price"><strong>From $1,500</strong><span>Typical timeline: 2–4 weeks</span></div>
+            <span class="service-tag">02 / LANDING PAGES</span>
+            <h3>One page with one purpose</h3>
+            <p>A focused page for a new service, promotion, event, or idea when you do not need a full website.</p>
+            <ul><li>Clear message and next step</li><li>Simple, focused page layout</li><li>Mobile friendly design</li><li>Contact or inquiry link</li></ul>
           </article>
           <article class="service">
-            <span class="service-tag">03 / CUSTOM</span>
-            <h3>Web features</h3>
-            <p>Need more than a brochure site? I can scope custom forms, database-backed features, or improvements to an existing site.</p>
-            <ul><li>Feature planning</li><li>Full-stack development</li><li>Existing-site improvements</li><li>Handoff documentation</li></ul>
-            <div class="price"><strong>Custom quote</strong><span>Based on scope and complexity</span></div>
+            <span class="service-tag">03 / LOCAL SEARCH</span>
+            <h3>Google Business Profile setup</h3>
+            <p>Help getting your business details organized on Google so local customers can understand what you offer and how to reach you.</p>
+            <ul><li>Profile setup or cleanup</li><li>Categories and service areas</li><li>Hours and contact details</li><li>Photo and review guidance</li></ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="work">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="section-no">02 / SELECTED WORK</span>
-          <div><h2>Project case studies, coming next.</h2><p class="section-intro">Three reserved slots for recent launches, with room for the challenge, solution, and result behind each one.</p></div>
-        </div>
-        <div class="work-grid">
-          <article class="project-slot">
-            <div class="project-preview"><div class="slot-top"><span>PROJECT 01</span><span>WEBSITE</span></div></div>
-            <div class="project-info"><h3>Featured business website</h3><p>Add a client name, a concise project summary, and the result achieved.</p><span class="replace-note">READY FOR YOUR FIRST CASE STUDY →</span></div>
-          </article>
-          <article class="project-slot">
-            <div class="project-preview"><div class="slot-top"><span>PROJECT 02</span><span>LANDING PAGE</span></div></div>
-            <div class="project-info"><h3>Campaign landing page</h3><p>Show how focused messaging and design helped support a launch or promotion.</p><span class="replace-note">PROJECT SLOT RESERVED →</span></div>
-          </article>
-          <article class="project-slot">
-            <div class="project-preview"><div class="slot-top"><span>PROJECT 03</span><span>FULL-STACK</span></div></div>
-            <div class="project-info"><h3>Custom web feature</h3><p>Highlight a useful workflow, integration, or data-driven experience.</p><span class="replace-note">PROJECT SLOT RESERVED →</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <section id="about">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-no">03 / ABOUT</span>
-          <div><h2>Development experience, grounded in real-world work.</h2></div>
+          <span class="section-no">02 / ABOUT ME</span>
+          <div><h2>A little about me.</h2></div>
         </div>
         <div class="about-layout">
-          <p class="about-lead">I’m Peter, a full-stack developer who values useful systems, clear communication, and websites that do their job well.</p>
+          <p class="about-lead">I’m Peter Carmines. I’m based in Salisbury, Maryland, and I like helping people turn a loose idea into something clear and useful.</p>
           <div class="about-copy">
-            <p>I built core web applications and worked with databases as a Full-Stack Developer at Social Auto Transport.</p>
-            <p>I also served as a Teaching Assistant for full-stack web development at Trilogy Education Services—experience that sharpened both my technical foundation and my ability to explain complex work clearly.</p>
+            <p>My background includes business operations, technical projects, field work, and client communication. I’m comfortable asking questions, figuring out what actually matters, and keeping things moving without making them more complicated than they need to be.</p>
+            <p>I also enjoy putting websites together and helping small businesses look more established online. Outside of work, I’m usually happiest surfing or spending time outdoors around Delmarva.</p>
             <div class="timeline">
-              <div class="timeline-row"><time>Oct 2018–<br>Jun 2019</time><div><strong>Full-Stack Developer</strong><span>Social Auto Transport · Core applications & databases</span></div></div>
-              <div class="timeline-row"><time>TEACHING</time><div><strong>Teaching Assistant</strong><span>Trilogy Education Services · Full-stack web development</span></div></div>
+              <div class="timeline-row"><time>BASED IN</time><div><strong>Salisbury, Maryland</strong><span>Helping small businesses locally and beyond</span></div></div>
+              <div class="timeline-row"><time>MY STYLE</time><div><strong>Practical and straightforward</strong><span>Clear communication, useful ideas, no unnecessary fuss</span></div></div>
+              <div class="timeline-row"><time>OFFLINE</time><div><strong>Surfing and the outdoors</strong><span>Always glad to trade screen time for time outside</span></div></div>
             </div>
           </div>
         </div>
@@ -371,14 +350,14 @@
     <section class="process-band">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-no">04 / PROCESS</span>
-          <div><h2>Clear steps. No mystery.</h2><p class="section-intro">We keep the project moving with a simple, visible process and decisions made at the right time.</p></div>
+          <span class="section-no">03 / HOW IT WORKS</span>
+          <div><h2>Keep it simple.</h2><p class="section-intro">We talk through the idea, decide what would actually be useful, and take it one step at a time.</p></div>
         </div>
         <div class="steps">
-          <div class="step"><b>STEP 01</b><h3>Define</h3><p>We clarify your audience, goals, content, and the most useful scope.</p></div>
-          <div class="step"><b>STEP 02</b><h3>Structure</h3><p>I organize the page flow and content so visitors know what matters.</p></div>
-          <div class="step"><b>STEP 03</b><h3>Build</h3><p>I design and develop the responsive site, sharing progress as it takes shape.</p></div>
-          <div class="step"><b>STEP 04</b><h3>Launch</h3><p>We review the final details, connect the essentials, and put the site to work.</p></div>
+          <div class="step"><b>STEP 01</b><h3>Talk</h3><p>You tell me about the business, the idea, and what you want people to do.</p></div>
+          <div class="step"><b>STEP 02</b><h3>Plan</h3><p>I help sort the information into a clear and manageable plan.</p></div>
+          <div class="step"><b>STEP 03</b><h3>Make</h3><p>I put it together and share progress so we can adjust things along the way.</p></div>
+          <div class="step"><b>STEP 04</b><h3>Put it online</h3><p>We check the details, connect what is needed, and get it live.</p></div>
         </div>
       </div>
     </section>
@@ -386,12 +365,12 @@
     <section class="contact" id="contact">
       <div class="wrap contact-inner">
         <div>
-          <h2>Have a project in mind?</h2>
-          <p>Send me a quick note about your business, what you need, and the timeline you’re considering. I’ll reply with the best next step.</p>
+          <h2>Interested? Send me an email.</h2>
+          <p>Tell me a little about your business and what you have in mind. I’m happy to talk it through and see if I can help.</p>
         </div>
         <div>
           <div class="email-actions">
-            <a href="mailto:petercarmines@gmail.com?subject=Website%20project%20inquiry">Email Peter →</a>
+            <a href="mailto:petercarmines@gmail.com?subject=Website%20project%20inquiry">Email Peter</a>
             <button type="button" id="copyEmail">Copy email</button>
           </div>
           <div class="copy-status" id="copyStatus" role="status" aria-live="polite">petercarmines@gmail.com</div>
@@ -402,7 +381,7 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <span>Peter Carmines · Full-Stack Web Developer</span>
+      <span>Peter Carmines · Salisbury, Maryland</span>
       <a href="mailto:petercarmines@gmail.com">petercarmines@gmail.com</a>
     </div>
   </footer>
@@ -415,7 +394,7 @@
         await navigator.clipboard.writeText('petercarmines@gmail.com');
         copyStatus.textContent = 'Email copied.';
       } catch (error) {
-        copyStatus.textContent = 'Copy unavailable — select: petercarmines@gmail.com';
+        copyStatus.textContent = 'Copy unavailable. Select: petercarmines@gmail.com';
       }
       window.setTimeout(() => { copyStatus.textContent = 'petercarmines@gmail.com'; }, 2400);
     });
